@@ -14,7 +14,7 @@ $result = array();
  
 while($row = mysqli_fetch_array($res)){
 	array_push($result,
-		array('customer id'=>$row[0],
+		array('customerid'=>$row[0],
 		'first_name'=>$row[1],
 		'last_name'=>$row[2],
 		'county'=>$row[3],
@@ -34,7 +34,9 @@ echo '<ul id="contacts" class="listing list-view clearfix">';
 					  <div class="avatar"><img src="images/circle-icons/64px/profle.png" width="32" height="32" /></div>
 					  <a class="more">&raquo;</a>';
 					  //ucwods makes the first letter in the names capital
-			echo	 '<a href = "details.php" class="name">'. ucwords($results['first_name']) . ' ' . ucwords($results['last_name']) .'</a>';
+			$customerid = $results['customerid'];
+			//echo $customerid;
+			echo	 '<a href = "profile.php?customerid='.$customerid.' " class="name">'. ucwords($results['first_name']) . ' ' . ucwords($results['last_name']) .'</a>';
 			echo nl2br("\n");
 			echo nl2br("\n");
 			echo	 '<p class="name"> Location:' .' '. ucwords($results['county']) . '</p>';
